@@ -1,0 +1,69 @@
+<head>
+    <style type="text/css">
+        #Button1 {
+            height: 26px;
+            width: 124px;
+        }
+        .auto-style1 {
+            width: 118px;
+        }
+        .auto-style2 {
+            width: 265px;
+        }
+        .auto-style3 {
+            width: 260px;
+        }
+        #Select1 {
+            height: 127px;
+            width: 180px;
+        }
+    </style>
+
+</head>
+<ion-header>
+  <ion-navbar color="Primary">
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h2>Welcome to BJ Loan Finder!</h2>
+    <button type="button" (click)=addNew() style="width:50%; height:5%;position:relative;"> + Add New Record </button>
+    
+    <p>     &nbsp; </p>
+      Please Enter Search Key
+
+        <ion-searchbar
+        [(ngModel)]="SearchKey"
+        [showCancelButton]="shouldShowCancel" placeholder="Name / Mobile / City" size="35"
+        (ionInput)="Search(SearchKey)" 
+        >
+      </ion-searchbar>     
+      <button type="button" (click)=detailByDate(0) style="width:30%; height:5%;position:relative;"> Yesterday </button>
+      <button type="button" (click)=detailByDate(1) style="width:30%; height:5%;position:relative;"> Today </button>
+      <button type="button" (click)=detailByDate(2) style="width:30%; height:5%;position:relative;"> Tomorrow </button>
+  <!--<input #SearchKey type="search" ng-model="SearchKey" placeholder="Enter Name or PhoneNumber or City" ng-selected="" required size="35" />   
+  <button (click)="Search(SearchKey.value)" color="secondary" ion-button round >Search</button> -->
+  <p>   &nbsp;</p>
+
+ <table border="1" sortable>
+        <tr>
+                <th class="auto-style1"><strong>Phone number</strong></th>
+                <th class="auto-style2"><strong>Name</strong></th>
+                <th class="auto-style3"><strong>City</strong></th>
+                <th class="auto-style4"><strong>Loan Amount</strong></th>
+               <!-- <th class="auto-style5"><strong>Due Date</strong></th>-->
+                <th class="auto-style6"><strong>View</strong></th>
+            </tr>
+     <tr *ngFor="let item of items">
+         <td class="auto-style1"> <a class="tab-item" href="tel:{{item.PhoneNumber}}"><B class="icon ion-ios-telephone-outline">  {{item.PhoneNumber}} </B></a>
+         </td>
+         <td class="auto-style2"> {{item.CustomerName}}</td>
+         <td class="auto-style3"> {{item.City}}</td>
+         <td class="auto-style4"> {{item.Amount}}</td>
+        <!-- <td class="auto-style5"> {{item.LoanDate}} </td>-->
+         <td> <button (click)="viewDetails(item)">{{item.CustID}}</button> </td>
+     </tr>
+ </table>
+
+  </ion-content>

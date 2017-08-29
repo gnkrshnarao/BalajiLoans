@@ -1,0 +1,56 @@
+<ion-header>
+        <ion-navbar color="Primary">
+          <ion-title>
+            {{item.CustomerName}}
+          </ion-title>
+        </ion-navbar>
+        
+      </ion-header>
+      
+      <ion-content padding>
+            <button (click)="Edit(SearchKey.value)" color="secondary" ion-button round aria-setsize="10" >Edit</button>
+            <button (click)="Save(SearchKey.value)" color="secondary" ion-button round >Save</button>
+
+            <ion-card>
+                <img src="http://photos.state.gov/libraries/media/788/images/90x90.gif" width="40" height="240" alt="No image found">
+                <!--<img src="https://1drv.ms/i/s!Ags-4pKewOwfvBAQKn1yeKNVXPt3" width="40" height="240" alt="No images   found">  ;body=Please%20pay%20the%20remaining%20amount%20of%20{{item.Amount}}. -->
+
+                <p>  &nbsp; </p>
+                        <table border="1" sortable>
+                <tr>
+                        <th class="alignleft"><strong>  Customer Name   </strong></th>
+                        <th class="alignleft"><strong> {{item.CustomerName}}</strong></th>
+                </tr>
+                <tr>
+                        <th class="auto-style1"><strong>Phone number</strong></th>
+                        <td class="auto-style1"> <a class="tab-item" href="tel:{{item.PhoneNumber}}"><B class="icon ion-ios-telephone-outline">  {{item.PhoneNumber}} </B></a>
+                        <a href="sanitize(sms:{{item.PhoneNumber}}?body=Please pay the remaining amount of {{item.Amount}})" > SMS1 </a>
+                        <!--
+                        <a href="sms:{{item.PhoneNumber}};body=Please pay the remaining amount of {{item.Amount}}" > SMS </a>
+                        <a href="whatsapp://send?body=Please pay the remaining amount of {{item.Amount}}?phone={{item.PhoneNumber}}" data-action="share/whatsapp/share">Whatsapp</a>
+                        -->
+                </tr>
+                <tr>
+                        <th class="auto-style1"><strong>Remaining Loan Amt</strong></th>
+                        <th class="auto-style2"><strong>{{item.Amount}}</strong></th>
+                </tr>
+                <tr>
+                        <th class="auto-style1"><strong>Customer Location </strong></th>
+                        <th class="auto-style2"><strong>{{item.City}}</strong></th>
+                </tr>
+                <tr>
+                        <th class="auto-style1"><strong>Loan Date </strong></th>
+                        <th class="auto-style2"><strong>{{item.LoanDate}}</strong></th>
+                </tr>
+                <tr>
+                        <th class="auto-style1"><strong>Loan Due Date </strong></th>
+                        <th class="auto-style2"><strong>{{item.DueDate}}</strong></th>
+                </tr>
+                <tr>
+                        <th class="auto-style1"><strong>Other Remarks </strong></th>
+                        <th class="auto-style2"><strong>{{item.OtherDetails}}</strong></th>
+                </tr>
+                        </table>
+            </ion-card>
+      </ion-content>
+      
