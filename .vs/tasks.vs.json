@@ -5,6 +5,11 @@
       "taskName": "task-home",
       "appliesTo": "src/pages/home/home.html",
       "type": "launch"
+    },
+    {
+      "taskName": "task-BalajiLoans",
+      "appliesTo": "/",
+      "type": "launch"
     }
   ]
 }
